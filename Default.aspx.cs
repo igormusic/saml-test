@@ -21,14 +21,24 @@ namespace saml_test
                     if (!samlResponse.IsValid()) //all good?
                     {
                         Response.Write("Invalid SAML");
+                        Response.Write("<br/>");
                     }
+                    else {
+                        Response.Write("WOOHOO!!! the user is logged in");
+                        Response.Write("<br/>");
+                    }
+
              
-                    //WOOHOO!!! the user is logged in
                     var username = samlResponse.GetNameID(); //let's get the username
-                    var email = samlResponse.GetEmail();
+                    var email = samlResponse.GetCustomAttribute("email");
+                    var businessSRF = samlResponse.GetCustomAttribute("businessSRF");
                     Response.Write("username:"+ username);
                     Response.Write("<br/>");
                     Response.Write("email:" + email);
+                    Response.Write("<br/>");
+                    Response.Write("SRF:" + businessSRF);
+                    Response.Write("<br/>");
+                    
 
                 }
                 catch (Exception ex) {
