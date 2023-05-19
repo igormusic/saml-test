@@ -27,6 +27,7 @@ obj/
 TestResults/
 .vs/
 Properties/PublishProfiles/
+Properties/ServiceDependencies/
 ###################
 # Web publish log #
 ###################
